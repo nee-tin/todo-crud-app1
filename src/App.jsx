@@ -5,8 +5,12 @@ import "./styles/App.css";
 
 function App() {
   const [todos, setTodos] = useState(() => {
-    const saved = localStorage.getItem("todos");
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem("todos");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   useEffect(() => {

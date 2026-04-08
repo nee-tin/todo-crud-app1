@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
+
+  useEffect(() => {
+    setEditText(todo.text);
+  }, [todo.text]);
 
   const handleSave = () => {
     if (!editText.trim()) return;
@@ -25,17 +29,27 @@ export default function TodoItem({ todo, toggleTodo, deleteTodo, editTodo }) {
           <input
             value={editText}
             onChange={(e) => setEditText(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSave()}
           />
           <motion.button whileHover={{ scale: 1.1 }} onClick={handleSave}>
             Save
           </motion.button>
+          <motion.button whileHover={{ scale: 1.1 }} onClick={() => setIsEditing(false)}>
+            Cancel
+          </motion.button>
         </>
       ) : (
         <>
-          <span onClick={() => toggleTodo(todo.id)}>{todo.text}</span>
+          <span onClick={() => toggleTodo(todo.id)}>
+            {todo.text}
+          </span>
           <div className="actions">
-            <motion.button whileHover={{ scale: 1.1 }} onClick={() => setIsEditing(true)}>Edit</motion.button>
-            <motion.button whileHover={{ scale: 1.1 }} onClick={() => deleteTodo(todo.id)}>Delete</motion.button>
+            <motion.button whileHover={{ scale: 1.1 }} onClick={() => setIsEditing(true)}>
+              Edit
+            </motion.button>
+            <motion.button whileHover={{ scale: 1.1 }} onClick={() => deleteTodo(todo.id)}>
+              Delete
+            </motion.button>
           </div>
         </>
       )}
