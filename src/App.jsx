@@ -4,18 +4,20 @@ import TodoList from "./components/TodoList.jsx";
 import "./styles/App.css";
 
 function App() {
-  const [todos, setTodos] = useState(() => {
-    try {
-      const saved = localStorage.getItem("todos");
-      return saved ? JSON.parse(saved) : [];
-    } catch {
-      return [];
-    }
-  });
+ const [todos, setTodos] = useState([]);
 
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
+useEffect(() => {
+  try {
+    const saved = localStorage.getItem("todos");
+    if (saved) setTodos(JSON.parse(saved));
+  } catch (err) {
+    console.error(err);
+  }
+}, []);
+
+ useEffect(() => {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}, [todos]);
 
   // ➕ Add Todo
   const addTodo = (text) => {
