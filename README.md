@@ -14,6 +14,4 @@ Demo
   ![Desktop View](https://github.com/nee-tin/assets/blob/main/desktop.view.png?raw=true)
 
 ## Gif
-![Todo App Demo](https://github.com/nee-tin/assets/blob/main/CRUDTodoApp-GoogleChrome2026-04-0821-09-32-ezgif.com-video-to-gif-converter.gif?raw=true)
-
- 
+![Todo App Demo](https://raw.githubusercontent.com/nee-tin/assets/main/CRUDTodoApp-ezgif.com-video-to-gif-converter.gif)
