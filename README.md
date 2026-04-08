@@ -13,8 +13,7 @@ Demo
 ## Screenshots
   ![Desktop View](https://github.com/nee-tin/assets/blob/main/desktop.view.png?raw=true)
 
-Tech Stack
-Frontend: [React / Vue / Angular]
-Backend: [Node.js + Express]
-Database: [MongoDB / MySQL / Firebase]
-Others: Axios, TailwindCSS, JWT (if authentication is included)
+## Gif
+![Todo App Demo](https://github.com/nee-tin/assets/blob/main/CRUDTodoApp-GoogleChrome2026-04-0821-09-32-ezgif.com-video-to-gif-converter.gif?raw=true)
+
+ 
